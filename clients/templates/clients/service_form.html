@@ -1,0 +1,30 @@
+﻿{% block content %}
+  <h2>{% if form.instance.pk %}Редактировать{% else %}Создать{% endif %} услугу</h2>
+  
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Сохранить</button>
+    <a href="{% url 'service_list' %}">Отмена</a>
+  </form>
+
+  {% if form.errors %}
+    <div class="alert alert-danger">
+      <strong>Ошибка!</strong> Пожалуйста, исправьте следующие ошибки:
+      <ul>
+        {% for field in form %}
+          {% for error in field.errors %}
+            <li>{{ error }}</li>
+          {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  <h3>Данные формы:</h3>
+  <pre>{{ form }}</pre>  {# Это поможет увидеть, что находится в форме #}
+{% endblock %}

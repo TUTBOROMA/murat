@@ -1,0 +1,18 @@
+﻿<!-- campaign_statistics.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статистика по кампаниям</title>
+</head>
+<body>
+    <h1>Статистика по кампаниям</h1>
+    <ul>
+        {% for stat in statistics %}
+            <li>{{ stat.name }}: {{ stat.num_clients }} клиентов</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'service_list' %}">Назад к списку услуг</a>
+</body>
+</html>

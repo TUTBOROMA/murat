@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Мое приложение{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Мое приложение</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'service_list' %}">Список услуг</a></li>
+                <li><a href="{% url 'service_create' %}">Создать услугу</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Add the rest of your template content here -->
+</body>
+</html>
